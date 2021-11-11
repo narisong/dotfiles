@@ -1,6 +1,6 @@
 # dotfiles
 
-download and import solarized in terminal
-install git
-install vs code
-download and put dot files under users folder
+1. download and import solarized in terminal
+1. install git
+1. install vs code
+1. download and put dot files under users folder
