@@ -2,8 +2,7 @@
 source ~/.git_prompt.sh
 precmd() {
   __posh_git_ps1 '%n@%m:%~ ' '$ '
-  #__posh_git_ps1 "\\[\[\e[0;32m\]\u \[\e[0;33m\]\w" " \[\e[1;34m\]\n\$\[\e[0m\]
- "
+  #__posh_git_ps1 "\\[\[\e[0;32m\]\u \[\e[0;33m\]\w" " \[\e[1;34m\]\n\$\[\e[0m\] "
 }
 # export PROMPT_COMMAND='__posh_git_ps1 "\\[\[\e[0;32m\]\u \[\e[0;33m\]\w" " \[\
 e[1;34m\]\n\$\[\e[0m\] ";'$PROMPT_COMMAND
