@@ -1,0 +1,77 @@
+set background=light
+
+" line number
+:set nu
+
+" highlight search
+:set hlsearch
+
+" color scheme
+syntax enable
+let g:solarized_termcolors=256
+set term=xterm-256color
+set background=dark
+let g:solarized_visibility="high"
+let g:solarized_contract="high"
+let g:solarized_termcolors=256
+colorscheme solarized
+
+" split layouts
+set splitbelow " :sp
+set splitright " :vs
+" move between splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" enable folding
+set foldmethod=indent
+" equivalent to not fold by default
+set foldlevel=99
+" folding with spacebar
+nnoremap <space> za
+
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+" NERDTree
+" start NERDTree when vim is started without file arguments
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+" exit vim if NERDTree is the only window remaining in the only tab
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+nnoremap <C-i> :NERDTreeFind<CR>
+nnoremap <C-w> :NERDTree<CR>
+" default window size
+:let g:NERDTreeWinSize=60
+
+" fzf search files
+nnoremap <C-p> :Files<CR>
+
+" brew install rg
+" rg search
+nnoremap <C-f> :Rg<CR>
+
+" vim-plug. install from github
+" :PlugInstall
+call plug#begin()
+
+" python code completion
+Plug 'davidhalter/jedi-vim'
+
+" file system explorer
+Plug 'preservim/nerdtree'
+
+" fzf fuzzy file finders
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
